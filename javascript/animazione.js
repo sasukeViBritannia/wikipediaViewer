@@ -2,8 +2,8 @@
 $(document).ready(function() {
 
 
-    /*var link = '';*/
-
+    var link = '';
+    /*Apertura pagina casuale in wikipedia*/
     $('#casuale').on('click', function() {
         window.open('https://it.wikipedia.org/wiki/Special:Random');
     });
@@ -11,13 +11,9 @@ $(document).ready(function() {
     $('form').submit(function(event) {
         event.preventDefault();
         var testo = $('input[name="ricerca"]').val();
-        window.alert('Form attivata con testo: '+testo);
-    });
-
-    /*$('#invia').on('click', function() {
-
+        window.alert('Form attivata con testo: ' + testo);
         $.ajax({
-                url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&srsearch=Juventus',
+                url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&srsearch=' + testo,
                 type: 'GET',
                 dataType: 'jsonp',
             })
@@ -30,7 +26,7 @@ $(document).ready(function() {
                         console.log(link);
                         var codificato = encodeURI(link);
                         var nuovoLink = $('<p><a href="https://it.wikipedia.org/wiki/' + codificato + '" target="_blank">' + link + '</a></p>');
-                        $('.contenitorePrincipale').append(nuovoLink);
+                        $('main').append(nuovoLink);
                     }
 
                 } else {
@@ -44,15 +40,6 @@ $(document).ready(function() {
             .always(function() {
                 console.log("complete");
             });
+    });
 
-    });*/
 });
-
-/*Chiamate ajax
-con parametri action di tipo query
-list di tipo search
-rssearch la stringa da ricercare
-formato tipo json
-controllare le pagine dal titolo e fare encoding uri
---da verificare se possibile aggiungere piccola didascalia--
-ATTENZIONE all'evento sul pulsante all'internodella form*/

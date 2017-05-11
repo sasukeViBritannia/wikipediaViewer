@@ -1,0 +1,33 @@
+body {
+  background-color: #E0DADA; }
+
+.contenitorePrincipale {
+  border: 3px solid black;
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  margin: auto;
+  max-width: 1000px; }
+
+header {
+  background-color: #C14747; }
+
+main {
+  background-color: #B2E1F0;
+  flex: 1;
+  padding: 20px 5px; }
+
+footer {
+  background-color: #CCEC77; }
+
+button {
+  background-color: red;
+  border: 1px solid blue;
+  border-radius: 5px;
+  color: white;
+  padding: 5px; }
+
+#casuale {
+  margin-top: 10px; }
+
+/*# sourceMappingURL=stile.css.map */
