@@ -2,13 +2,19 @@
 $(document).ready(function() {
 
 
-    var link = '';
+    /*var link = '';*/
 
     $('#casuale').on('click', function() {
         window.open('https://it.wikipedia.org/wiki/Special:Random');
     });
 
-    $('#invia').on('click', function() {
+    $('form').submit(function(event) {
+        event.preventDefault();
+        var testo = $('input[name="ricerca"]').val();
+        window.alert('Form attivata con testo: '+testo);
+    });
+
+    /*$('#invia').on('click', function() {
 
         $.ajax({
                 url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&srsearch=Juventus',
@@ -17,11 +23,20 @@ $(document).ready(function() {
             })
             .done(function(data) {
                 console.log("success");
-                link = data.query.search[0].title;
-                console.log(link);
-                var codificato = encodeURI(link);
-                var nuovoLink = $('<a href="https://it.wikipedia.org/wiki/'+codificato+'" target="_blank">Indirizzo trovato</a>');
-                $('.contenitorePrincipale').append(nuovoLink);
+                var trovati = data.query.searchinfo.totalhits;
+                if (trovati > 0) {
+                    for (var i = 0; i < 10; i++) {
+                        link = data.query.search[i].title;
+                        console.log(link);
+                        var codificato = encodeURI(link);
+                        var nuovoLink = $('<p><a href="https://it.wikipedia.org/wiki/' + codificato + '" target="_blank">' + link + '</a></p>');
+                        $('.contenitorePrincipale').append(nuovoLink);
+                    }
+
+                } else {
+                    window.alert('Nessun risultato trovato');
+                }
+
             })
             .fail(function() {
                 console.log("error");
@@ -30,7 +45,7 @@ $(document).ready(function() {
                 console.log("complete");
             });
 
-    });
+    });*/
 });
 
 /*Chiamate ajax
