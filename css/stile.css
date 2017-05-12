@@ -40,19 +40,15 @@ button {
   padding: 20px;
   margin: 10px;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  flex-wrap: wrap; }
   .risultati div {
     border: 3px solid blue;
     background-color: lightblue;
     padding: 0 10px 10px 10px;
     flex-basis: 20%;
-    overflow: hidden;
-    height: 100px; }
-    .risultati div p:first-child {
-      text-align: center;
-      font-size: 1.2em; }
-    .risultati div p:last-child {
-      text-align: left;
-      font-size: 0.7em; }
+    height: 100px;
+    margin-top: 10px;
+    display: none; }
 
 /*# sourceMappingURL=stile.css.map */

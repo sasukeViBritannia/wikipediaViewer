@@ -25,8 +25,7 @@ $(document).ready(function() {
                         link = data.query.search[i].title;
                         console.log(link);
                         var codificato = encodeURI(link);
-                        var nuovoLink = $('<a href="https://it.wikipedia.org/wiki/' + codificato + '" target="_blank">' + link + '</a>');
-                        $('.risultati').append(nuovoLink);
+                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').first().text(link);
                     }
 
                 } else {
