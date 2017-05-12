@@ -24,7 +24,7 @@ $(document).ready(function() {
                     for (var i = 0; i < 1; i++) {
                         link = data.query.search[i].title;
                         console.log(link);
-                        var codificato = encodeURI(link);
+                        /*var codificato = encodeURI(link);*/
                         $('.risultati').find('div').eq(i).slideDown('slow').find('p').first().text(link);
                     }
 
@@ -41,4 +41,10 @@ $(document).ready(function() {
             });
     });
 
+    $('#espandi').on('click', function(){
+        $(this).css('transform', 'rotate(-135deg)');
+    });
+
 });
+
+/*Ricordarsi di aggiunger nella query di ricerca il formato utf8*/
