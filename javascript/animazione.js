@@ -21,12 +21,12 @@ $(document).ready(function() {
                 console.log("success");
                 var trovati = data.query.searchinfo.totalhits;
                 if (trovati > 0) {
-                    for (var i = 0; i < 10; i++) {
+                    for (var i = 0; i < 1; i++) {
                         link = data.query.search[i].title;
                         console.log(link);
                         var codificato = encodeURI(link);
-                        var nuovoLink = $('<p><a href="https://it.wikipedia.org/wiki/' + codificato + '" target="_blank">' + link + '</a></p>');
-                        $('main').append(nuovoLink);
+                        var nuovoLink = $('<a href="https://it.wikipedia.org/wiki/' + codificato + '" target="_blank">' + link + '</a>');
+                        $('.risultati').append(nuovoLink);
                     }
 
                 } else {
