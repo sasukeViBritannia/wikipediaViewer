@@ -13,7 +13,7 @@ $(document).ready(function() {
         var testo = $('input[name="ricerca"]').val();
         window.alert('Form attivata con testo: ' + testo);
         $.ajax({
-                url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&srsearch=' + testo,
+                url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&utf8=1&srsearch=' + testo,
                 type: 'GET',
                 dataType: 'jsonp',
             })
@@ -41,10 +41,15 @@ $(document).ready(function() {
             });
     });
 
-    $('#espandi').on('click', function(){
-        $(this).css('transform', 'rotate(-135deg)');
+    $('.card').find('p').last().children().on('click', function() {
+        if ($(this).hasClass('testoNonEspanso')) {
+            $(this).removeClass('testoNonEspanso');
+            $(this).addClass('testoEspanso');
+        } else {
+            $(this).removeClass('testoEspanso');
+            $(this).addClass('testoNonEspanso');
+        }
     });
 
 });
 
-/*Ricordarsi di aggiunger nella query di ricerca il formato utf8*/

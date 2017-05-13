@@ -56,7 +56,7 @@ button {
       margin: 0 auto;
       text-align: left;
       position: relative; }
-      .risultati div p:nth-child(3) #espandi {
+      .risultati div p:nth-child(3) .espandi {
         position: absolute;
         border: solid black;
         border-width: 0 3px 3px 0;
@@ -64,7 +64,15 @@ button {
         padding: 3px;
         left: 90%;
         top: 50%;
-        transform: translateY(-50%) rotate(45deg);
-        transition: transform 300ms; }
+        transition: transform 1000ms; }
+
+.testoNonEspanso {
+  transform: translateY(-50%) rotate(45deg); }
+
+.testoEspanso {
+  transform: rotate(-135deg); }
+
+.espansioneTesto {
+  transition: transform 1000ms; }
 
 /*# sourceMappingURL=stile.css.map */
