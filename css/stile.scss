@@ -49,13 +49,13 @@ button {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     div {
-        margin: 5px auto;
+        /*margin: 5px auto;*/
         border: 3px solid blue;
-        padding: 15px;
-        flex-basis: 25%;
-        display: none;
+        padding: 10px;
+        flex-basis: 30%;
+        /*display: none;*/
         p:nth-child(1) {
             font-size: 1.5em;
             margin: 0 auto;
@@ -63,7 +63,7 @@ button {
         }
         p:nth-child(2) {
             font-size: 1em;
-            overflow: hidden;
+            /*display: none;*/
         }
         p:nth-child(3) {
             font-size: 1em;
@@ -92,6 +92,3 @@ button {
     transform: rotate(-135deg);
 }
 
-.espansioneTesto {
-    transition: transform 1000ms;
-}
