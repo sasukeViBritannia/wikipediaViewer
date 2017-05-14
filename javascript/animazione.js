@@ -15,6 +15,7 @@ $(document).ready(function() {
         window.alert('Form attivata con testo: ' + testo);
         $.ajax({
                 url: 'https://en.wikipedia.org///w/api.php?action=query&format=json&list=search&utf8=1&srsearch=' + testo,
+                /*url: 'https://en.wikipedia.org///w/api.php?action=opensearch&format=json&limit=10&utf8=1&search='+testo,*/
                 type: 'GET',
                 dataType: 'jsonp',
             })
@@ -22,7 +23,7 @@ $(document).ready(function() {
                 console.log("success");
                 var trovati = data.query.searchinfo.totalhits;
                 if (trovati > 0) {
-                    for (var i = 0; i < 6; i++) {
+                    for (var i = 0; i < 9; i++) {
                         link = data.query.search[i].title;
                         var snippet = data.query.search[i].snippet;
                         var codificato = encodeURI(link);
