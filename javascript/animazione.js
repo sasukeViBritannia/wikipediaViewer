@@ -42,13 +42,8 @@ $(document).ready(function() {
     });
 
     $('.card').find('p').last().children().on('click', function() {
-        if ($(this).hasClass('testoNonEspanso')) {
-            $(this).removeClass('testoNonEspanso');
-            $(this).addClass('testoEspanso');
-        } else {
-            $(this).removeClass('testoEspanso');
-            $(this).addClass('testoNonEspanso');
-        }
+        $(this).toggleClass('testoNonEspanso testoEspanso');
+   
     });
 
 });
