@@ -47,11 +47,15 @@ button {
     padding: 20px;
     margin: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     div {
         margin: 5px auto;
         border: 3px solid blue;
         padding: 15px;
+        flex-basis: 25%;
+        display: none;
         p:nth-child(1) {
             font-size: 1.5em;
             margin: 0 auto;
@@ -59,6 +63,7 @@ button {
         }
         p:nth-child(2) {
             font-size: 1em;
+            overflow: hidden;
         }
         p:nth-child(3) {
             font-size: 1em;
@@ -73,13 +78,11 @@ button {
                 padding: 4px;
                 left: 90%;
                 top: 50%;
-                transition: transform 1000ms;
+                transition: transform 500ms;
             }
         }
     }
 }
-
-
 
 .testoNonEspanso {
     transform: translateY(-50%) rotate(45deg);
