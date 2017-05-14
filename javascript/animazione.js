@@ -21,22 +21,16 @@ $(document).ready(function() {
             })
             .done(function(data) {
                 console.log("success");
-                var trovati = data.query.searchinfo.totalhits;
-                if (trovati > 0) {
-                    for (var i = 0; i < 9; i++) {
-                        link = data.query.search[i].title;
-                        var snippet = data.query.search[i].snippet;
-                        var codificato = encodeURI(link);
-                        console.log(link);
-                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(0).text(link);
-                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(1).html(snippet);
-                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(2).find('a').attr({ 'href': 'https://en.wikipedia.org/wiki/' + codificato, 'target': '_blank' });
-                    }
-
-                } else {
-                    window.alert('Nessun risultato trovato');
+                for (var i = 0; i < 9; i++) {
+                    link = data.query.search[i].title;
+                    var snippet = data.query.search[i].snippet;
+                    var codificato = encodeURI(link);
+                    $('.risultati').append('<div class="card"><p>Titolo</p><p>Contenuto</p><p>' +
+                        '<a href="#">Continua su Wikipedia</a><span id="freccia" class="espandi testoNonEspanso"></span></p></div>');
+                    $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(0).text(link);
+                    $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(1).html(snippet);
+                    $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(2).find('a').attr({ 'href': 'https://en.wikipedia.org/wiki/' + codificato, 'target': '_blank' });
                 }
-
             })
             .fail(function() {
                 console.log("error");
@@ -46,9 +40,11 @@ $(document).ready(function() {
             });
     });
 
-    $('.espandi').on('click', function() {
+    $('.risultati').on('click', '#freccia', function() {
         $(this).toggleClass('testoNonEspanso testoEspanso');
         $(this).closest('div').children('p').eq(1).toggle('300ms');
     });
 
 });
+
+/*Verificare differenza search con opensearch*/
