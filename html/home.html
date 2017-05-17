@@ -19,13 +19,19 @@
             <h1>Cerca in wikipedia</h1>
         </header>
         <main>
-            <form>
-                <input type="text" name="ricerca" placeholder="Inserisci qui">
-                <button id="invia">Invia richiesta</button>
-            </form>
-            <button id="casuale">Pagina casuale</button>
-            <div class="risultati">
-            </div>
+            <section class="ricerca">
+                <div>
+                    <button id="casuale" title="Ricerca pagina casuale">?</button>
+                    <form>
+                        <input type="text" name="ricerca" placeholder="Inserisci parola" required="required" size="20%">
+                        <button id="invia">Invia richiesta</button>
+                    </form>
+                </div>
+            </section>
+            <section>
+                <div class="risultati">
+                </div>
+            </section>
         </main>
         <footer>
             <p>Sviluppato da me</p>
