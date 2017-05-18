@@ -3,7 +3,12 @@ body {
 
 .contenitorePrincipale {
   border: 3px solid #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   min-height: 600px;
   margin: auto;
@@ -15,15 +20,27 @@ header {
 
 main {
   background-color: #B2E1F0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
   flex: 1;
   padding: 0 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column; }
 
 section.ricerca {
   text-align: center; }
   section.ricerca div {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
     flex-direction: row;
     padding: 20px 10px; }
     section.ricerca div #casuale {
@@ -33,9 +50,17 @@ section.ricerca {
       font-size: 35px;
       cursor: pointer; }
     section.ricerca div form {
+      -webkit-box-flex: 3;
+      -ms-flex: 3;
       flex: 3;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
       justify-content: center;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
       align-items: center; }
       section.ricerca div form input[name='ricerca'] {
         font-size: 20px; }
@@ -57,12 +82,20 @@ button {
   background-color: #CDF190;
   border: 1px solid white;
   margin: 50px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  -ms-flex-pack: distribute;
   justify-content: space-around; }
   .risultati div.card {
     padding: 10px;
+    -ms-flex-preferred-size: 30%;
     flex-basis: 30%;
     max-width: 30%;
     display: none; }
@@ -78,11 +111,12 @@ button {
     .risultati div.card p:nth-child(2) {
       font-size: 1em;
       display: none;
-      max-height: 100px;
+      max-height: 95px;
       margin: 0 auto;
       overflow: hidden;
       border-left: 3px solid blue;
-      border-right: 3px solid blue; }
+      border-right: 3px solid blue;
+      padding: 10px; }
     .risultati div.card p:nth-child(3) {
       font-size: 1em;
       margin: 0 auto;
@@ -99,12 +133,32 @@ button {
         padding: 4px;
         left: 90%;
         top: 50%;
-        transition: transform 600ms; }
+        -webkit-transition: -webkit-transform 600ms;
+        transition: -webkit-transform 600ms;
+        transition: transform 600ms;
+        transition: transform 600ms, -webkit-transform 600ms; }
 
 .testoNonEspanso {
+  -webkit-transform: translateY(-50%) rotate(45deg);
   transform: translateY(-50%) rotate(45deg); }
 
 .testoEspanso {
+  -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg); }
+
+@media screen and (max-width: 730px) {
+  .risultati div.card {
+    flex-basis: 40%;
+    max-width: 40%; }
+
+  section.ricerca div form input[name='ricerca'] {
+    width: 50%; } }
+@media screen and (max-width: 550px) {
+  .risultati div.card {
+    flex-basis: 100%;
+    max-width: 100%; }
+
+  section.ricerca div form input[name='ricerca'] {
+    width: 50%; } }
 
 /*# sourceMappingURL=stile.css.map */
