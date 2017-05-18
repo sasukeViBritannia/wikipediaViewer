@@ -33,9 +33,14 @@ section.ricerca {
       font-size: 35px;
       cursor: pointer; }
     section.ricerca div form {
-      flex: 3; }
+      flex: 3;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
       section.ricerca div form input[name='ricerca'] {
         font-size: 20px; }
+      section.ricerca div form button {
+        margin: 0 5px; }
 
 footer {
   text-align: center;
@@ -43,7 +48,7 @@ footer {
 
 button {
   background-color: red;
-  border: 1px solid blue;
+  border: 2px solid blue;
   border-radius: 5px;
   color: white;
   padding: 5px; }
@@ -51,15 +56,12 @@ button {
 .risultati {
   background-color: #CDF190;
   border: 1px solid white;
-  padding: 20px;
   margin: 50px 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around; }
   .risultati div.card {
-    /*margin: 5px auto;*/
-    /*border: 3px solid blue;*/
     padding: 10px;
     flex-basis: 30%;
     max-width: 30%;
