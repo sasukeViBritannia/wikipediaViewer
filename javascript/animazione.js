@@ -7,19 +7,11 @@ $(document).ready(function() {
     /*Apertura pagina casuale in wikipedia*/
     $('#casuale').on('click', function() {
         window.open('https://it.wikipedia.org/wiki/Special:Random');
-    })
+    });
 
     $('form').submit(function(event) {
         event.preventDefault();
     });
-
-//prevenire pressine tasto enter fa partire la query
-    $(document).keypress(
-        function(event) {
-            if (event.keyCode == '13') {
-                event.preventDefault();
-            }
-        });
 
     $('#invia').on('click', function() {
         $('.risultati').empty();
@@ -43,13 +35,13 @@ $(document).ready(function() {
                         $('.risultati').append('<div class="card"><p>Titolo</p><p>Contenuto</p><p>' +
                             '<a href="#">Continua su Wikipedia</a><span id="freccia" class="espandi testoNonEspanso"></span></p></div>');
                         $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(0).text(link);
-                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(1).html(snippet);
+                        $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(1).html('<i>' + snippet + '</i>');
                         $('.risultati').find('div').eq(i).slideDown('slow').find('p').eq(2).find('a').attr({ 'href': 'https://it.wikipedia.org/wiki/' + codificato, 'target': '_blank' });
                     }
 
                 } else {
                     /*window.alert('Nessuno trovato');*/
-                    $('.risultati').append('<h2>Nessun risultato trovato</h2>');
+                    $('.risultati').append('<h2 style="text-align: center">Nessun risultato trovato</h2>');
                 }
             })
             .fail(function() {
@@ -66,4 +58,3 @@ $(document).ready(function() {
     });
 
 });
-

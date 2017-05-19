@@ -16,7 +16,7 @@ body {
 
 header {
   text-align: center;
-  background-color: #C14747; }
+  background-color: #CCEC77; }
 
 main {
   background-color: #B2E1F0;
@@ -34,47 +34,42 @@ main {
 
 section.ricerca {
   text-align: center; }
-  section.ricerca div {
+  section.ricerca form {
+    margin: 50px 20px;
+    -webkit-box-flex: 3;
+    -ms-flex: 3;
+    flex: 3;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    padding: 20px 10px;
-    /*#casuale {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        font-size: 35px;
-        cursor: pointer;
-    }*/ }
-    section.ricerca div form {
-      -webkit-box-flex: 3;
-      -ms-flex: 3;
-      flex: 3;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -ms-flex-align: center;
-      align-items: center; }
-      section.ricerca div form #casuale {
-        height: 50px;
-        width: 50px;
-        border-radius: 50%;
-        font-size: 35px;
-        margin: 0 5px;
-        cursor: pointer; }
-      section.ricerca div form input[name='ricerca'] {
-        font-size: 20px; }
-      section.ricerca div form #invia {
-        margin: 0 5px;
-        cursor: pointer; }
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center; }
+    section.ricerca form #casuale {
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      font-size: 35px;
+      margin: 0 5px;
+      cursor: pointer;
+      -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+      order: 1; }
+    section.ricerca form input[name='ricerca'] {
+      font-size: 20px;
+      -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+      order: 2;
+      width: 70%; }
+    section.ricerca form #invia {
+      margin: 0 5px;
+      cursor: pointer;
+      -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+      order: 3; }
 
 footer {
   text-align: center;
@@ -94,7 +89,7 @@ button {
 .risultati {
   background-color: #CDF190;
   border: 1px solid white;
-  margin: 50px 10px;
+  margin: 0 10px 20px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -138,6 +133,8 @@ button {
       border-left: 3px solid blue;
       border-bottom: 3px solid blue;
       border-right: 3px solid blue; }
+      .risultati div.card p:nth-child(3) a {
+        text-decoration: none; }
       .risultati div.card p:nth-child(3) .espandi {
         position: absolute;
         border: solid black;
@@ -159,26 +156,24 @@ button {
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg); }
 
-@media screen and (max-width: 730px) {
+@media screen and (max-width: 810px) {
   .risultati div.card {
-    flex-basis: 40%;
-    max-width: 40%; }
+    min-width: 45%; }
 
   section.ricerca div form input[name='ricerca'] {
     width: 50%; } }
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 600px) {
   .risultati div.card {
-    flex-basis: 100%;
-    min-width: 246px; }
-
-  section.ricerca div form input[name='ricerca'] {
-    width: 50%;
-    font-size: 16px; }
-
-  section.ricerca div form #casuale,
-  section.ricerca div form button {
+    min-width: 100%; } }
+@media screen and (max-width: 600px) and (max-width: 545px) {
+  section.ricerca form #casuale,
+  section.ricerca form button {
     height: 30px;
     width: 30px;
+    font-size: 16px; }
+
+  section.ricerca form input[name='ricerca'] {
+    width: 50%;
     font-size: 16px; } }
 
 /*# sourceMappingURL=stile.css.map */
