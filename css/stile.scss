@@ -47,13 +47,13 @@ section.ricerca {
         -ms-flex-direction: row;
         flex-direction: row;
         padding: 20px 10px;
-        #casuale {
+        /*#casuale {
             height: 50px;
             width: 50px;
             border-radius: 50%;
             font-size: 35px;
             cursor: pointer;
-        }
+        }*/
         form {
             -webkit-box-flex: 3;
             -ms-flex: 3;
@@ -67,11 +67,20 @@ section.ricerca {
             -webkit-box-align: center;
             -ms-flex-align: center;
             align-items: center;
+            #casuale {
+                height: 50px;
+                width: 50px;
+                border-radius: 50%;
+                font-size: 35px;
+                margin: 0 5px;
+                cursor: pointer;
+            }
             input[name='ricerca'] {
                 font-size: 20px;
             }
-            button {
+            #invia {
                 margin: 0 5px;
+                cursor: pointer;
             }
         }
     }
@@ -85,9 +94,14 @@ footer {
 button {
     background-color: red;
     border: 2px solid blue;
-    border-radius: 5px;
+    //border-radius: 5px;
     color: white;
     padding: 5px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    font-size: 35px;
+    cursor: pointer;
 }
 
 .risultati {
@@ -179,9 +193,16 @@ button {
 @media screen and (max-width: 550px) {
     .risultati div.card {
         flex-basis: 100%;
-        max-width: 100%;
+        min-width: 246px;
     }
     section.ricerca div form input[name='ricerca'] {
         width: 50%;
+        font-size: 16px;
+    }
+    section.ricerca div form #casuale,
+    section.ricerca div form button {
+        height: 30px;
+        width: 30px;
+        font-size: 16px;
     }
 }
