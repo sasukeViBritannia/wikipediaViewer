@@ -1,204 +1,138 @@
+@import 'mixins';
+@import 'pulsante';
+$bgPrincipale: #e0dada;
+$contrastoUno: #ccec77;
+$contrastoDue: #B2E1F0;
 body {
-    background-color: #e0dada;
+    background-color: $bgPrincipale;
 }
 
 .contenitorePrincipale {
     border: 3px solid #000;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
-    min-height: 600px;
     margin: auto;
     max-width: 1000px;
+    min-height: 600px;
 }
 
 header {
+    background: $contrastoUno;
     text-align: center;
-    background-color: #CCEC77;
 }
 
 main {
-    background-color: #B2E1F0;
-    display: -webkit-box;
-    display: -ms-flexbox;
+    background-color: $contrastoDue;
     display: flex;
-    -webkit-box-flex: 1;
-    -ms-flex: 1;
     flex: 1;
-    padding: 0 5px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
     flex-direction: column;
+    padding: 0 5px;
 }
 
 section.ricerca {
     text-align: center;
     form {
-        margin: 50px 20px;
-        -webkit-box-flex: 3;
-        -ms-flex: 3;
-        flex: 3;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
         align-items: center;
+        display: flex;
+        flex: 3;
+        justify-content: center;
+        margin: 50px 20px;
         #casuale {
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-            font-size: 35px;
-            margin: 0 5px;
-            cursor: pointer;
-            -webkit-box-ordinal-group: 2;
-            -ms-flex-order: 1;
+            @extend .pulsanteTondo;
             order: 1;
         }
         input[name='ricerca'] {
             font-size: 20px;
-            -webkit-box-ordinal-group: 3;
-            -ms-flex-order: 2;
             order: 2;
             width: 70%;
+            @include bp-big {
+                width: 50%;
+            }
+            @include bp-small {
+                font-size: 16px;
+            }
         }
         #invia {
-            margin: 0 5px;
-            cursor: pointer;
-            -webkit-box-ordinal-group: 4;
-            -ms-flex-order: 3;
+            @extend .pulsanteTondo;
             order: 3;
         }
     }
 }
 
-footer {
-    text-align: center;
-    background-color: #CCEC77;
-}
-
-button {
-    background-color: red;
-    border: 2px solid blue;
-    color: white;
-    padding: 5px;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    font-size: 35px;
-    cursor: pointer;
-}
-
-.risultati {
-    background-color: #CDF190;
+section.risultati {
+    background-color: $contrastoUno;
     border: 1px solid white;
-    margin: 0 10px 20px 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
     flex-direction: row;
-    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-    -ms-flex-pack: distribute;
     justify-content: space-around;
+    margin: 0 10px 20px 10px;
     div.card {
-        padding: 10px;
-        -ms-flex-preferred-size: 30%;
+        display: none;
         flex-basis: 30%;
         max-width: 30%;
-        display: none;
+        padding: 10px;
+        @include bp-big {
+            min-width: 45%;
+        }
+        @include bp-medium {
+            min-width: 100%;
+        }
         p:nth-child(1) {
+            border-left: 3px solid blue;
+            border-right: 3px solid blue;
+            border-top: 3px solid blue;
             font-size: 1.5em;
             margin: 0 auto;
-            text-align: center;
             overflow-x: hidden;
+            text-align: center;
             white-space: nowrap;
-            border-left: 3px solid blue;
-            border-top: 3px solid blue;
-            border-right: 3px solid blue;
         }
         p:nth-child(2) {
-            font-size: 1em;
-            display: none;
-            max-height: 95px;
-            margin: 0 auto;
-            overflow: hidden;
             border-left: 3px solid blue;
             border-right: 3px solid blue;
+            display: none;
+            font-size: 1em;
+            margin: 0 auto;
+            max-height: 95px;
+            overflow: hidden;
             padding: 10px;
         }
         p:nth-child(3) {
+            border-bottom: 3px solid blue;
+            border-left: 3px solid blue;
+            border-right: 3px solid blue;
             font-size: 1em;
             margin: 0 auto;
-            text-align: left;
             position: relative;
-            border-left: 3px solid blue;
-            border-bottom: 3px solid blue;
-            border-right: 3px solid blue;
+            text-align: left;
             a {
                 text-decoration: none;
-            }
-            .espandi {
-                position: absolute;
-                border: solid black;
-                border-width: 0 3px 3px 0;
-                display: inline-block;
-                padding: 4px;
-                left: 90%;
-                top: 50%;
-                -webkit-transition: -webkit-transform 600ms;
-                transition: -webkit-transform 600ms;
-                transition: transform 600ms;
-                transition: transform 600ms, -webkit-transform 600ms;
             }
         }
     }
 }
 
+footer {
+    background-color: $contrastoUno;
+    text-align: center;
+}
+
+.espandi {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 4px;
+    position: absolute;
+    left: 90%;
+    transition: transform 600ms;
+    top: 50%;
+}
+
 .testoNonEspanso {
-    -webkit-transform: translateY(-50%) rotate(45deg);
     transform: translateY(-50%) rotate(45deg);
 }
 
 .testoEspanso {
-    -webkit-transform: rotate(-135deg);
     transform: rotate(-135deg);
-}
-
-@media screen and (max-width: 810px) {
-    .risultati div.card {
-        min-width: 45%;
-    }
-    section.ricerca div form input[name='ricerca'] {
-        width: 50%;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .risultati div.card {
-        min-width: 100%;
-    }
-    @media screen and (max-width: 545px) {
-        section.ricerca form #casuale,
-        section.ricerca form button {
-            height: 30px;
-            width: 30px;
-            font-size: 16px;
-        }
-        section.ricerca form input[name='ricerca'] {
-            width: 50%;
-            font-size: 16px;
-        }
-    }
 }
