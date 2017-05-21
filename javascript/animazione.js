@@ -9,15 +9,16 @@ $(document).ready(function() {
         window.open('https://it.wikipedia.org/wiki/Special:Random');
     });
 
+    /*Bloccata azione generata dalla form*/
     $('form').submit(function(event) {
         event.preventDefault();
     });
 
+    /*Pressione tasto ricerca*/
     $('#invia').on('click', function() {
         $('.risultati').empty();
         $('.risultati').css('padding', '0');
         var testo = $('input[name="ricerca"]').val();
-        /*window.alert('Form attivata con testo: ' + testo);*/
         $.ajax({
                 url: 'https://it.wikipedia.org///w/api.php?action=query&format=json&list=search&utf8=1&srsearch=' + testo,
                 type: 'GET',
@@ -40,7 +41,6 @@ $(document).ready(function() {
                     }
 
                 } else {
-                    /*window.alert('Nessuno trovato');*/
                     $('.risultati').append('<h2 style="text-align: center">Nessun risultato trovato</h2>');
                 }
             })
@@ -52,6 +52,7 @@ $(document).ready(function() {
             });
     });
 
+    /*Animazione espansione testo dei risultati ottenutiS*/
     $('.risultati').on('click', '#freccia', function() {
         $(this).toggleClass('testoNonEspanso testoEspanso');
         $(this).closest('div').children('p').eq(1).toggle('300ms');
